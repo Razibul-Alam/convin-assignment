@@ -14,7 +14,7 @@ const SingleUser = () => {
     const{first_name,last_name,avatar,email}=user
     console.log(user)
     return (
-       <div className='d-flex justify-content-center aling-items-center'>
+       <div className='mt-5 d-flex justify-content-center'>
             <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={avatar} />
   <Card.Body>
