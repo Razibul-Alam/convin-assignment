@@ -1,9 +1,10 @@
 
 import React,{useState,useEffect} from 'react';
-import {Card} from 'react-bootstrap';
+import {Button, Card} from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 const SingleUser = () => {
     const[user,setUser]=useState({})
+    const[value,setValue]=useState({})
     const{userId}=useParams()
     console.log(userId)
     useEffect(()=>{
@@ -11,19 +12,21 @@ const SingleUser = () => {
      .then(res=>res.json())
      .then(data=>setUser(data.data))
     },[userId])
-    const{first_name,last_name,avatar,email}=user
     console.log(user)
     return (
-       <div className='mt-5 d-flex justify-content-center'>
+      <>
+     {userId&&<div className='mt-5 d-flex justify-content-center'>
             <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={avatar} />
+  <Card.Img variant="top" src={user?.avatar} />
   <Card.Body>
-    <Card.Title>{first_name}</Card.Title>
-    <Card.Title>{last_name}</Card.Title>
-    <Card.Title>{email}</Card.Title>
+    <Card.Title>{user?.first_name}</Card.Title>
+    <Card.Title>{user?.last_name}</Card.Title>
+    <Card.Title>{user?.email}</Card.Title>
   </Card.Body>
 </Card>
-       </div>
+       </div>}
+       </>
+       
     );
 };
 

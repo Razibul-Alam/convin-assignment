@@ -1,6 +1,5 @@
 
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-import SingleUser from './SingleUser/SingleUser';
 import AllUsers from './Users/AllUsers';
 ;
 function App() {
@@ -8,8 +7,8 @@ function App() {
     
     <Router>
       <Routes>
+      <Route path="user/:userId" element={<AllUsers/>}/>
       <Route path="/" element={<AllUsers/>}/>
-        <Route path="user/:userId" element={<SingleUser/>}/>
       </Routes>
       </Router>
       
